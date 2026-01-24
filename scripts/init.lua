@@ -179,7 +179,25 @@ local function init(self)
         Filename = "science_timeskip",
 		Path = "resources/weapons", 
 		ResourcePath = "weapons",
-	}
+	},
+	{
+        Type = "base",
+        Filename = "HW_BroodLauncher",
+		Path = "resources/weapons", 
+		ResourcePath = "weapons",
+	},
+	{
+        Type = "base",
+        Filename = "HW_HunterRifle",
+		Path = "resources/weapons", 
+		ResourcePath = "weapons",
+	},
+	{
+        Type = "base",
+        Filename = "HW_RendingClaws",
+		Path = "resources/weapons", 
+		ResourcePath = "weapons",
+	},
 	});
 	
 	-- Add new sprites with the Hive Warrior Resource Loader
