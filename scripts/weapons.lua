@@ -650,7 +650,7 @@ Passive_Adaptation = PassiveSkill:new{
 
 Passive_Adaptation_A = Passive_Adaptation:new{
 	Passive = "adapt_aoe",
-	Description = "The entire mech squad benefits from Adaptation.",
+	UpgradeDescription = "The entire mech squad benefits from Adaptation.",
 	TipImage = {
 		Unit = Point(2,3),
 		Friendly = Point(2,1),
