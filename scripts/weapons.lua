@@ -217,24 +217,25 @@ function Wolf_Biocannon:GetSkillEffect(p1,p2)
 	local ret = SkillEffect()
 	local dir = GetDirection(p2 - p1)
 	local target = GetProjectileEnd(p1, p2)
+	local damageAmount = self.GetDamage()
 	
 	local pawn = Board:GetPawn(p2)
-	if pawn ~= nil then
+	if pawn then
 		local pilot = pawn:GetPersonality()
-		
-		if (pilot == "Original" or Wolf_HasPoweredWeapon(pawn, "Passive_ServoEvade", false)) and Board:IsValid(p2 + DIR_VECTORS[dir]) then
-			target = GetProjectileEnd(p2, p2 + DIR_VECTORS[dir])
+		if (pilot == "Original" or Wolf_HasPoweredWeapon(pawn, "Passive_ServoEvade", false)) then
+			if Board:IsValid(p2 + DIR_VECTORS[dir]) then 
+				target = GetProjectileEnd(p2, p2 + DIR_VECTORS[dir])
+			else 
+				damageAmount = 0	--if we end up hitting Ralph because he is on an edge tile, nullify damage
+			end
 			HW_Intimidate("Wolf_HW_Evade", false, 0)
 		end
 	end
+	if Board:IsBuilding(target) then damageAmount = 0 end
 	
-	local damage = SpaceDamage(target, self.GetDamage())
+	local damage = SpaceDamage(target, damageAmount)
 	
-	if Board:IsBuilding(target) then damage.iDamage = 0 end
-	
-	if EvoCheck("A") then damage.iAcid = 1 end
-	
-	--LOG("Shooting: "..target.x..","..target.y)
+	if EvoCheck("A") and damageAmount > 0 then damage.iAcid = 1 end
 	
 	ret:AddProjectile(damage, self.Projectile)
 	
