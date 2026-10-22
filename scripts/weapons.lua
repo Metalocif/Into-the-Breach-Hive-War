@@ -228,7 +228,11 @@ function Wolf_Biocannon:GetSkillEffect(p1,p2)
 			else 
 				damageAmount = 0	--if we end up hitting Ralph because he is on an edge tile, nullify damage
 			end
-			HW_Intimidate("Wolf_HW_Evade", false, 0)
+			if pilot == "Original" then 
+				HW_Intimidate("Wolf_HW_Evade_Ralph", false, 0)
+			else
+				HW_Intimidate("Wolf_HW_Evade", false, 0)
+			end
 		end
 	end
 	if Board:IsBuilding(target) then damageAmount = 0 end
@@ -503,8 +507,8 @@ HW_BroodLauncher = Skill:new{
 	}
 }
 HW_BroodLauncher_A = HW_BroodLauncher:new{UpgradeDescription = "Deals 1 more damage.",Damage = 3,}
-HW_BroodLauncher_B = HW_BroodLauncher:new{UpgradeDescription = "Incurs no self-damage.",MinDamage = 0,}
-HW_BroodLauncher_AB = HW_BroodLauncher:new{Damage = 3,MinDamage = 0}
+HW_BroodLauncher_B = HW_BroodLauncher:new{UpgradeDescription = "Incurs no self-damage.",SelfDamage = 0,}
+HW_BroodLauncher_AB = HW_BroodLauncher:new{Damage = 3,SelfDamage = 0}
 
 function HW_BroodLauncher:GetTargetArea(point)
 	local ret = PointList()
@@ -524,7 +528,7 @@ end
 
 function HW_BroodLauncher:GetSkillEffect(p1, p2)
 	local ret = SkillEffect()
-	if self.SelfDamage == 1 then ret:AddDamage(SpaceDamage(p1, 1)) end
+	if self.SelfDamage > 0 then ret:AddDamage(SpaceDamage(p1, 1)) end
 	ret:AddArtillery(p1, SpaceDamage(p2), "effects/shotup_totem2.png", PROJ_DELAY)
 	local dir1, dir2
 	if p2.x < p1.x and p2.y < p1.y then dir1 = DIR_UP dir2 = DIR_LEFT end
