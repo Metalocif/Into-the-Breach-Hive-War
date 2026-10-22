@@ -67,10 +67,15 @@ Personality.Original.Wolf_HW_Spawn = {
 
 -- Wolf_HW_Evade - called when Ralph dodges a reflex shot - 100% chance for call
 
-Personality.Artificial.Wolf_HW_Evade = {
+Personality.Artificial.Wolf_HW_Evade_Ralph = {
 	"I wondered if you were here, Karlsson.",
 	"Karlsson! It must be.",
 	"Finally, we meet again."
+}
+Personality.Artificial.Wolf_HW_Evade = {
+	"Ah, a worthy challenger.",
+	"Good reflexes.",
+	"An enjoyable battle, at last."
 }
 
 Personality.Original.Wolf_HW_Evade = {

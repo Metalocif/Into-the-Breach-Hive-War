@@ -24,8 +24,12 @@ modapiext.dialog:addRuledDialog("Wolf_HW_Retreat", {
 	{ main = "Wolf_HW_Retreat" }
 })
 
-modapiext.dialog:addRuledDialog("Wolf_HW_Evade", {
+modapiext.dialog:addRuledDialog("Wolf_HW_Evade_Ralph", {
 	Odds = 100,
+	{ main = "Wolf_HW_Evade_Ralph" }
+})
+modapiext.dialog:addRuledDialog("Wolf_HW_Evade", {
+	Odds = 50,
 	{ main = "Wolf_HW_Evade" }
 })
 
