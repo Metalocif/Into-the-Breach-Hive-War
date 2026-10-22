@@ -40,23 +40,6 @@ local function init(self)
 		modApi:appendAsset("img/achievements/".. img ..".png", path .."resources/achievements/".. img ..".png")
 		modApi:appendAsset("img/achievements/".. img .."_gray.png", path .."resources/achievements/".. img .."_gray.png")
 	end
-
-	-- chievo = { id = "HW_FinalKill", name = "Unbreached", tip = "Kill the Hive Warrior by defeating it inside the Hive caverns", img = "img/achievements/finalkill.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_PentaKill", name = "Hive Collapse", tip = "Defeat the Hive Warrior four times then kill it, all in a single timeline", img = "img/achievements/pentakill.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_TenPower", name = "Light the Darkness", tip = "Enter the Hive caverns with 10 full bars of Grid Power", img = "img/achievements/tenpower.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_Nostophobia", name = "Off the Beaten Path", tip = "Win a victory without possessing any of the squad's original weapons", img = "img/achievements/swapmaster.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_RalphKill", name = "Cosmic Rivalry", tip = "Land the killing blow on the Hive Warrior with Ralph Karlsson", img = "img/achievements/ralphkill.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_SilentKill", name = "Can't Touch This", tip = "Defeat the Hive Warrior without any reflex shots being fired", img = "img/achievements/silentkill.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_FriendlyFire", name = "My Finger Slipped", tip = "Kill a Vek with a shot from the Hive Warrior's Biocannon", img = "img/achievements/friendlyfire.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
-	-- chievo = { id = "HW_NoPodVictory", name = "Comeback Kings", tip = "Win a victory after letting the Hive Warrior destroy four timepods", img = "img/achievements/nopodvictory.png" }
-	-- HiveWar_achvApi:AddChievo(chievo)
 	
 	modApi.achievements:add{id = "HW_FinalKill",name = "Unbreached",tip = "Kill the Hive Warrior by defeating it inside the Hive caverns.",img = "img/achievements/finalkill.png",}
 	modApi.achievements:add{id = "HW_PentaKill",name = "Hive Collapse",tip = "Defeat the Hive Warrior four times then kill it, all in a single timeline.",img = "img/achievements/pentakill.png",}
