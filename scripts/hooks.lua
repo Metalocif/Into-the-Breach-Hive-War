@@ -295,7 +295,7 @@ end
 
 local function skillStartHook(mission, pawn, weaponId, p1, p2)
 	if GAME then
-		GAME.HW_WasRalph = (pawn:GetPersonality() == "Original")
+		GAME.HW_WasRalph = (pawn and pawn:GetPersonality() == "Original")
 		GAME.HW_Dodged = (weaponId == "Biocannon")
 	end
 end
