@@ -731,7 +731,6 @@ function Any_GridOverload:GetSkillEffect(p1, p2)
 	
 	for dir = DIR_START, DIR_END do
 		local tile = p1 + DIR_VECTORS[dir]
-		local damage = SpaceDamage(tile, self.GetDamage())
 		local todo = {tile}
 		local origin = { [hash(tile)] = p1 }
 		
@@ -743,6 +742,7 @@ function Any_GridOverload:GetSkillEffect(p1, p2)
 				
 				if self.Buildings and (Board:IsBuilding(current) or Board:IsPawnTeam(current, TEAM_PLAYER)) then
 					local direction = GetDirection(current - origin[hash(current)])
+					local damage = SpaceDamage(tile, self.GetDamage())
 					damage.sAnimation = "Lightning_Attack_"..direction
 					damage.loc = current
 					damage.iDamage = DAMAGE_ZERO

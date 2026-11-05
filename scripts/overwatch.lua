@@ -54,7 +54,7 @@ local function pawnRefreshOverwatch(pawn)
 	local id = pawn:GetId()
 	local pawnDefaults = _G[pawn:GetType()].ReflexConfig
 	GAME.HW_Overwatch[id].markedTiles = {}
-	GAME.HW_Overwatch[id].remainingShots = pawnDefaults.ShotsTotal or INT_MAX
+	GAME.HW_Overwatch[id].remainingShots = pawnDefaults and pawnDefaults.ShotsTotal or INT_MAX
 	if _G[pawn:GetType()].Name == "Hive Warrior" then
 		GAME.HW_Overwatch[id].remainingShots = GAME.HW_BioAmmo or 1
 	end

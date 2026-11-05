@@ -7,34 +7,10 @@ local logging = false
 
 -- master table from which HW statistics are copied, make any balance changes you want here
 local MasterStatsHW = {
-	Sector1 = {
-		Move = 3,
-		Health = 5,
-		ReaveDmg = 2,
-		BioDmg = 1,
-		BioRange = 1,
-	},
-	Sector2 = {
-		Move = 3,
-		Health = 6,
-		ReaveDmg = 2,
-		BioDmg = 1,
-		BioRange = 2,
-	},
-	Sector3 = {
-		Move = 4,
-		Health = 6,
-		ReaveDmg = 3,
-		BioDmg = 2,
-		BioRange = 2,
-	},
-	Sector4 = {
-		Move = 4,
-		Health = 7,
-		ReaveDmg = 3,
-		BioDmg = 2,
-		BioRange = 3,
-	},
+	Sector1 = { Move = 3, Health = 5, ReaveDmg = 2, BioDmg = 1, BioRange = 1, },
+	Sector2 = { Move = 3, Health = 6, ReaveDmg = 2, BioDmg = 1, BioRange = 2, },
+	Sector3 = { Move = 4, Health = 6, ReaveDmg = 3, BioDmg = 2, BioRange = 2, },
+	Sector4 = { Move = 4, Health = 7, ReaveDmg = 3, BioDmg = 2, BioRange = 3, },
 }
 		
 local function onLoad()
@@ -168,8 +144,8 @@ local function BreachWarrior(pod)
 	
 	for i, v in ipairs(list) do
 		for dir = DIR_START, DIR_END do
-			tick = v
-			target = pod
+			local tick = v
+			local target = pod
 			while tick > 0 do
 				target = target + DIR_VECTORS[dir]
 				tick = tick - 1
@@ -199,11 +175,11 @@ local function BreachWarrior(pod)
 			end
 		end
 	end
-	-- If we still can't find any space, try with less parameters
+	-- If we still can't find any space, try with fewer parameters
 	for i, v in ipairs(list) do
 		for dir = DIR_START, DIR_END do
-			tick = v
-			target = pod
+			local tick = v
+			local target = pod
 			while tick > 0 do
 				target = target + DIR_VECTORS[dir]
 				tick = tick - 1
@@ -628,7 +604,7 @@ local function HWVelocityDodge(skillEffect)
 			for _, loc in ipairs(reachable) do
 				local moveScore = ScorePositioning(loc, target)
 				
-				targets = extract_table(weapon:GetTargetArea(loc))
+				local targets = extract_table(weapon:GetTargetArea(loc))
 				for _, target in ipairs(targets) do
 					if Board:IsValid(target) then
 						-- attack score

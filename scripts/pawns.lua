@@ -79,7 +79,7 @@ function HiveWarriorAI(point, pawn)
 	
 	-- Make sure mechs aren't blocking the reflex fire line of sight
 	for dir = DIR_START, DIR_END do
-		target = point + DIR_VECTORS[dir]
+		local target = point + DIR_VECTORS[dir]
 		local pawnRange = _G[pawn:GetType()].ReflexConfig
 		while Board:IsValid(target) and not Board:IsSmoke(target) and point:Manhattan(target) <= pawnRange.Range do
 			if Board:IsPawnTeam(target, TEAM_PLAYER) then
@@ -92,7 +92,7 @@ function HiveWarriorAI(point, pawn)
 	
 	-- Don't stand next to bad shit
 	for dir = DIR_START, DIR_END do
-		target = point + DIR_VECTORS[dir]
+		local target = point + DIR_VECTORS[dir]
 		if Board:IsPod(target) then rangedScore = rangedScore + 10 end
 		
 		if Board:IsBuilding(target) then rangedScore = rangedScore + 5 end
@@ -189,26 +189,3 @@ HiveWarriorProxy = {
 	end
 }
 AddPawn("HiveWarriorProxy")
-
--------------------------
-
-HiveGuard = 
-	{
-		Name = "Firefly",
-		Health = 5,
-		MoveSpeed = 2,
-		Image = "HiveGuard",	
-		ImageOffset = 0,
-		ReflexConfig = {
-			Range = 3, -- range in tiles
-			ShotsTotal = 1, -- total shots this unit can take per turn
-			ShotsPerPawn = 1, -- how many shots on a single mech the unit can take each turn
-			WeaponSlot = 1, -- the slot of the weapon that we want to fire
-		},
-		SkillList = { "Wolf_Biocannon" },
-		Ranged = 1,
-		SoundLocation = "/enemy/firefly_soldier_2/",
-		DefaultTeam = TEAM_ENEMY,
-		ImpactMaterial = IMPACT_INSECT
-	}
-AddPawn("HiveGuard") 
