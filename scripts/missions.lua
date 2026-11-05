@@ -183,6 +183,7 @@ local oldMissionEnd = Mission_Final_Cave.MissionEnd
 function Mission_Final_Cave:MissionEnd()
 	local idx = 0
 	local won = 0
+	GAME.HW_Encounters = GAME.HW_Encounters or {}	--shouldn't matter but I got a bug report about this
 	while idx < #GAME.HW_Encounters do
 		if logging then LOG(GAME.HW_Encounters[idx+1]) end
 		if GAME.HW_Encounters[idx+1] ~= "loss" then
@@ -193,7 +194,6 @@ function Mission_Final_Cave:MissionEnd()
 	end
 	
 	if won == #GAME.HW_Encounters and idx > 4 then
-		-- HiveWar_achvApi:TriggerChievo("HW_NoPodVictory", true)
 		modApi.achievements:trigger("Wolf_HiveWar", "HW_NoPodVictory")
 	end
 	
@@ -218,7 +218,6 @@ function Mission_Final_Cave:MissionEnd()
 	end
 	--
 	if Nostophobic then
-		-- HiveWar_achvApi:TriggerChievo("HW_Nostophobia", true)
 		modApi.achievements:trigger("Wolf_HiveWar", "HW_Nostophobia")
 	end
 	
