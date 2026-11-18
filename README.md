@@ -6,8 +6,6 @@ The Hive Warrior features several interesting mechanics:
 - Evolution: the Hive Warrior will attack you every island, becoming stronger each time. Its stats will increase and it will gain unique perks.
 - Grid Expansion: defeating the Hive Warrior rewards you with one of six special weapons and increases the Grid's capacity by 1.
 
-<img width="769" height="433" alt="image" src="https://www.dropbox.com/s/8pmvrqiyhtrsvkr/hivewarrior.gif?dl=1" />
-
 Will also change the visuals of the loading screen and main menu.
 
 Original mod by NotSoLoneWolf, art by Djinn, updated for Advanced Edition by Metalocif.
